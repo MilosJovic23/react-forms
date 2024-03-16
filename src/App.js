@@ -1,9 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import LoginForm from "./Components/LoginForm";
+
+const App=() =>{
   return (
-    "test"
+    <>
+      <LoginForm/>
+    </>
   );
 }
 
