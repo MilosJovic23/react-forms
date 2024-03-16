@@ -1,5 +1,7 @@
 
 import { useForm } from "react-hook-form"
+import { EmailValidator } from "../Validators/EmailValidator";
+import { PasswordValidator } from "../Validators/PasswordValidator";
 
 const LoginForm=()=>{
 
@@ -12,25 +14,13 @@ const LoginForm=()=>{
                 <form onSubmit={handleSubmit(formSubmitted)}>
 
                     <input type="text" name="email"  placeholder="unesite vas email"
-                           {...register("email",
-                        {
-                            required:"email is required",
-                            pattern:{
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message:"email is not valid"
-                            }
-                        })}/>
+                           {...register("email", { EmailValidator } )}/>
                     {errors.email && (<p>{errors.email.message}</p>)}
-                    <input type="password" placeholder="unesite vasu lozinku"
-                           {...register("password",
-                        {
-                            required:"password is required",
-                            minLength:{value:3,message:"password should be at least 3 characters"},
-                            validate:{
-                                trimCheck:value=>value.trim() !== "" || "password cannot be empty or spaces only"}
 
-                            })}/>
+                    <input type="password" placeholder="unesite vasu lozinku"
+                           {...register("password", { PasswordValidator } )}/>
                     {errors.password && (<p>{errors.password.message}</p>)}
+
                     <button type="submit">Login</button>
                 </form>
             </>
