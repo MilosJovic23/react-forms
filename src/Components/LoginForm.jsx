@@ -14,17 +14,17 @@ const LoginForm=()=>{
                 <form onSubmit={handleSubmit(formSubmitted)}>
 
                     <input type="text" name="email"  placeholder="unesite vas email"
-                           {...register("email", { EmailValidator } )}/>
+                           {...register("email", EmailValidator )}/>
                     {errors.email && (<p>{errors.email.message}</p>)}
 
                     <input type="password" placeholder="unesite vasu lozinku"
-                           {...register("password", { PasswordValidator } )}/>
+                           {...register("password", PasswordValidator )}/>
                     {errors.password && (<p>{errors.password.message}</p>)}
-
                     <button type="submit">Login</button>
+
                 </form>
             </>
-    )
+        )
 };
 
 export default LoginForm;
