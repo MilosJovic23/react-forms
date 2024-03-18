@@ -13,8 +13,8 @@ export const PasswordValidator=
             message:"password cannot be more then 16 characters"
         },
         pattern: {
-            value: /[A-Z0-9-a-z]{3}/,
-            message:"password should contain at least 1 uppercase letter"
+            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{5,}$/,
+            message:"password should contain at least 1 uppercase letter and one symbol(ex.@#$%^&+=!)"
         },
         validate:   {
             trimCheck:
